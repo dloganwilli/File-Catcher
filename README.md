@@ -1,88 +1,68 @@
-FileCatcher
-FileCatcher is a desktop GUI tool built in Python using Tkinter. It scans all connected drives and your Downloads folder for specific file types (.png and .pka by default), then lets you either display, copy, or move those files to a new location. It includes live scanning feedback, logging, a revert option, and a built-in mini game to kill time while scanning.
+# FileCatcher
 
-Features
-Scans all available drives and the user's Downloads folder
+FileCatcher is a desktop GUI utility built in Python using Tkinter. It scans all connected drives and the user's Downloads folder for specific file types (`.png` and `.pka` by default). It offers three modes: display-only, copy, or move. The app features live scanning feedback, action logging, a revert function for moved files, and a built-in mini game while scanning.
 
-Filters for .png and .pka files (customizable in code)
+## Features
 
-Three scan modes: display only, copy, or move
+- Scans all connected drives and the Downloads folder
+- Filters for `.png` and `.pka` file types (editable in the code)
+- Modes: display-only, copy files, or move files
+- Tkinter GUI styled with black/green terminal aesthetic
+- Realtime scan feedback with spinner and path display
+- Scrollable output box for listing results
+- Logging of actions to `log.txt`
+- Revert button restores moved files using `revert_log.json`
+- Built-in click-the-dot mini game to pass time during scans
 
-GUI built with Tkinter (black/green console aesthetic)
+## Built With
 
-Spinner animation and live path updates during scan
+- Python 3
+- Tkinter for GUI
+- `os`, `shutil`, `threading`, `json`, and other standard libraries
 
-Logging of all found and moved/copied files
+## How to Run
 
-Revert function to undo the last move action
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/dloganwilli/File-Catcher.git
+   cd File-Catcher
+   ```
 
-Realtime console output during scan
+2. Run the app:
+   ```bash
+   python FileCatcher.py
+   ```
 
-Embedded “click-the-dot” mini game while you wait
+3. Choose one scan mode:
+   - Display Only
+   - Copy Files
+   - Move Files
 
-How to Use
-Start the application
+4. Click "Start Scan" and wait for results. You’ll be prompted for a destination folder if copying or moving files.
 
-bash
-Copy
-Edit
-python FileCatcher.py
-Choose a scan mode at the bottom:
+5. You can pause/stop the scan or revert the last move action using the buttons at the bottom.
 
-Display Only
+## File Types
 
-Copy Files
-
-Move Files
-
-Click "Start Scan" and let it run.
-
-It will scan every connected drive and your Downloads folder.
-
-Matching files are listed in the output box.
-
-If you chose Copy or Move, you’ll be prompted to pick a target folder.
-
-To pause or stop, use the Pause/Stop buttons.
-
-To undo a move, click “Revert Last Action.” It restores files to their original paths using a saved log.
-
-Requirements
-Python 3.6+
-
-Built-in libraries only (no external dependencies)
-
-File Types
-The script currently looks for:
-
-python
-Copy
-Edit
+By default, the app looks for:
+```python
 selected_exts = [".png", ".pka"]
-You can change this in the scan_for_files() function.
+```
+You can modify this in the `scan_for_files()` function if needed.
 
-Logging
-log.txt: All actions like files found, copied, moved, or errors
+## Logging
 
-revert_log.json: Stores move history for undo functionality
+- `log.txt`: Logs found files and all copy/move actions
+- `revert_log.json`: Stores move actions for the revert feature
 
-UI Preview (no screenshot yet)
-Console-style GUI (green text on black)
+## To-Do / Future Improvements
 
-Scrolling output window
+- Add UI option to select file types
+- Export scan results as CSV or TXT
+- Add drag-and-drop file support
+- Add total file size and progress bar
 
-Status spinner and live folder updates
+## Author
 
-Dot-click mini game at the bottom
-
-To-Do / Future Improvements
-Add file type filter UI
-
-Custom file extensions from settings
-
-Export results as CSV or TXT
-
-Add confirmation for large file moves
-
-Author
-Logan Williamson (dloganwilli)
+Logan Williamson  
+[GitHub](https://github.com/dloganwilli)
